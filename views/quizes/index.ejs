@@ -1,6 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div style="text-align:center;">
 <table>
 <% var i; for (i=0; i < quizes.length; i++) {  %>
    <tr><td><a href="quizes/<%= quizes[i].id  %>">
-   <%= quizes[i].pregunta %></a></td></tr>
+   <%= quizes[i].pregunta %></a></td></tr>   
    <% } %>
  </table>
+ <form method="get" action="/quizes">
+    <input type="text" name="search" value="Busqueda de pregunta" />
+    <input type="submit" value="Buscar" />
+ </form>
+ </div>
+ </body>
+ </html>
