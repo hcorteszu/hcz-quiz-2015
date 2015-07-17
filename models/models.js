@@ -46,14 +46,11 @@ sequelize.sync().then(function() {
                    });
            Quiz.create({ pregunta: 'Campeón Copa América Chile 2015',
                          respuesta: 'Chile'
-                   });        
-           Quiz.create({ pregunta: 'País mas poblado de Sudamérica',
-                         respuesta: 'Brasil'
-                   }); 
+                   });    
            Quiz.create({ pregunta: 'Sede Juegos Panamericanos 2015',
                          respuesta: 'Toronto'
                    })   
            .then(function(){console.log('Base de datos inicializada')});
 		};
-	});a
+	}); 
 });
