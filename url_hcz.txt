@@ -1,4 +1,4 @@
-URL del ejercicio P2P del módulo 7
+URL del ejercicio P2P del módulo 8
 
 URL del proyecto hcz-quiz-2015 en GITHUB
 https://github.com/hcorteszu/hcz-quiz-2015/
