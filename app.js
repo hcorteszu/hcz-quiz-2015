@@ -23,7 +23,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended : true }));
 app.use(cookieParser('Quiz 2015'));
-app.use(session());
+app.use(session({ secret: 'keyboard cat', cookie: {maxAge: 60000}, resave: true, saveUninitialized: true}));
+//app.use(session());
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
