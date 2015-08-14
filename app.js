@@ -30,15 +30,41 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Helpers dinamicos:
 app.use(function(req, res, next) {
 
-	// guardar path en session.redir para de login 
+	// guardar path en session.redir para  login 
 	if (!req.path.match(/\/login|\/logout/)) {
 		req.session.redir = req.path;
 	}
-
 	// Hacer visible req.session en las vistas
 	res.locals.session = req.session;
 	next();
 });
+
+var anterior = 0
+app.use(function(req, res, next) {
+  if(req.session.user) {
+  	 if (anterior===0) 
+       {
+       	anterior=Date.now();
+       }
+  	nueva_sesion = Date.now();
+ /*   console.log('Nueva sesion 1:', nueva_sesion);
+    console.log('Anterior sesion :', anterior);    */
+    tiempo = (nueva_sesion - anterior);
+    console.log('Tiempo consumido :', tiempo); 
+    if (tiempo>120000)
+      {
+        anterior=0;
+        delete req.session.user;
+        console.log('Sesion desactivada por inactiva por mas de dos minutos');
+//      return res.redirect('/logout');
+    }else{
+    	anterior=Date.now();
+    }}else{
+ 
+  };
+next();
+});
+
 
 app.use('/', routes);
 
